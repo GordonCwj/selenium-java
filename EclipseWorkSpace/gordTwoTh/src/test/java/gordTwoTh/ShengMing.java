@@ -8,4 +8,5 @@ public interface ShengMing {
 	//public static boolean isJudgingElement(WebDriver web); 
 	public void eat();
 	public void eaterror();
+	
 }
