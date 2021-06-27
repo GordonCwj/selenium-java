@@ -9,4 +9,5 @@ public interface LoginDemo {
 	public void openpage() throws InterruptedException;
 	public boolean isJudgingElement(WebDriver web);
 	public void Gordclose();
+	public void ReadTx();
 }
