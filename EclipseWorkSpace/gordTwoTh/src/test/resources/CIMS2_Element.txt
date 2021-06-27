@@ -1,4 +1,8 @@
-Gordon-1_1, Get the file handle as a stream of input bytecode that needs to be read
-Gordon-1_2, N-COUNT If you get a scholarship to a school or university, your studies are paid for by the school or university or by some other organization
-Gordon-1_3, He got a scholarship to the Pratt Institute of Art. 
-Gordon-1_4, At the same time, it has stimulated the attention and enhancement of the Song poem to the noble gas value to a certain extent also,
+input[id='react-select-3-input']
+input[id='react-select-3-input']
+input[id='react-select-4-input']
+input[id="loginName"]
+input[id='password_password'][name='password']
+button[id='btn_signIn']
+button[id='force_login_button']
+input[id='react-select-5-input']
