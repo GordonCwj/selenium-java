@@ -1,0 +1,29 @@
+package gordTwoTh;
+
+import java.io.File;
+
+public class Fuben {
+	public static void main(String args []){
+		//1.首先獲得文件的句柄
+		//2.獲得句柄後，當做是一個輸入字節碼的流，然後對這個輸入流進行讀取
+		//3.讀取到輸入流後，需要讀取生成字節碼流
+		//4.一行一行的輸入，使用readline()函數，注意使用拋出異常的判斷
+		
+		//設置編碼格式
+		String Code = "GBK";
+		
+		//設置需要讀取的文件的路徑
+		String filepath = "D:\\Gordon\\GitDemo\\selenium-java\\EclipseWorkSpace\\gordTwoTh\\src\\test\\resources\\CIMS2_Element.txt";
+		
+		//創建一個file對象
+		File files = new File(filepath);
+		
+		//判斷文件是否存在
+		if(files.isFile() && files.exists()) {
+			
+		} else {
+			
+		}
+	}
+
+}
