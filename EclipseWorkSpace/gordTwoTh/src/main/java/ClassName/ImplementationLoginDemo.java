@@ -38,8 +38,8 @@ public class ImplementationLoginDemo implements LoginDemo {
 	
 	public void openpage() throws InterruptedException {
 		
-		String[] Element = ReadTx();
-		
+		String[] Element = ReadTxElement();
+		String[] Detail = ReadTxDetail();
 		//Set ChromeDriver path
 		System.setProperty("webdriver.chrome.driver", "D:\\Gordon\\GoogleDriver\\chromedriver.exe");
 		
@@ -60,12 +60,12 @@ public class ImplementationLoginDemo implements LoginDemo {
 		//cdr.findElementByCssSelector("input[id='react-select-3-input']").sendKeys("Professional Development and Quality Assurance");
 		//System.out.println(Element[0]);
 		//String ele = Element[0];
-		cdr.findElementByCssSelector(Element[0]).sendKeys("Professional Development and Quality Assurance");
+		cdr.findElementByCssSelector(Element[0]).sendKeys(Detail[0]);
 		cdr.findElementByCssSelector(Element[1]).sendKeys(Keys.TAB);
-		cdr.findElementByCssSelector(Element[2]).sendKeys("Kowloon Families Clinic");
+		cdr.findElementByCssSelector(Element[2]).sendKeys(Detail[1]);
 		cdr.findElementByCssSelector(Element[2]).sendKeys(Keys.TAB);
-		cdr.findElementByCssSelector(Element[3]).sendKeys("gordonchen");
-		cdr.findElementByCssSelector(Element[4]).sendKeys("Aa000000");
+		cdr.findElementByCssSelector(Element[3]).sendKeys(Detail[2]);
+		cdr.findElementByCssSelector(Element[4]).sendKeys(Detail[3]);
 		cdr.findElementByCssSelector(Element[5]).click();
 		Thread.sleep(5000);
 		
@@ -75,7 +75,7 @@ public class ImplementationLoginDemo implements LoginDemo {
 			System.out.println("this element is exist");
 		}
 		Thread.sleep(5000);
-		cdr.findElementByCssSelector(Element[7]).sendKeys("Not Attend");
+		cdr.findElementByCssSelector(Element[7]).sendKeys(Detail[4]);
 		cdr.findElementByCssSelector(Element[7]).sendKeys(Keys.TAB);
 		Thread.sleep(5000);
 		cdr.close();
@@ -91,7 +91,7 @@ public class ImplementationLoginDemo implements LoginDemo {
 		System.out.println("open window error");
 	}
 	
-	public String[] ReadTx()
+	public String[] ReadTxElement()
 	{
 		String[] LineTxBuff = new String[100];
 		int LTB=0;
@@ -104,7 +104,7 @@ public class ImplementationLoginDemo implements LoginDemo {
 				InputStreamReader reads = new InputStreamReader(
 						new FileInputStream(files), encoding);
 				BufferedReader bufferedReader = new BufferedReader(reads);
-				while((LineTxt = bufferedReader.readLine()) != null) {
+				while((LineTxt = bufferedReader.readLine()) != null && LTB<=99) {
 					//System.out.println(LineTxt);
 					LineTxBuff[LTB] = LineTxt;
 					LTB++;
@@ -119,6 +119,34 @@ public class ImplementationLoginDemo implements LoginDemo {
 				e.printStackTrace();
 		}
 		return LineTxBuff;
+	}
+	
+	public String[] ReadTxDetail() {
+		int LTB = 0;
+		String[] LinkTextDetail = new String[100];
+		String code = "GBK";
+		String filepath = "D:\\Gordon\\GitDemo\\selenium-java\\EclipseWorkSpace\\gordTwoTh\\src\\test\\resources\\CIMS2_Detail.txt";
+		File fileDetail = new File(filepath);
+		String linkTxt = null;
+		try {
+			if(fileDetail.isFile() && fileDetail.exists()) {
+				InputStreamReader readDetail = new InputStreamReader(new FileInputStream(fileDetail),code);
+				BufferedReader bufferDetail = new BufferedReader(readDetail);
+				while((linkTxt = bufferDetail.readLine()) != null && LTB<=99) {
+					LinkTextDetail[LTB] = linkTxt;
+					LTB++;
+				}
+				readDetail.close();
+			}
+			else {
+				System.out.println("txt is not find");
+			}
+		}
+		catch(Exception e) {
+			System.out.println("read txt error");
+			e.printStackTrace();
+		}
+		return LinkTextDetail;
 	}
 
 }
