@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-07-08T10:28:53Z" name="Default suite" finished-at="2021-07-08T10:28:53Z" duration-ms="18">
+  <suite started-at="2021-08-17T09:22:56Z" name="Default suite" finished-at="2021-08-17T09:22:56Z" duration-ms="25">
     <groups>
+      <group name="fast">
+        <method signature="CIMS2_Test.aFastTest()[pri:0, instance:gordTwoTh.CIMS2_Test@2d710f1a]" name="aFastTest" class="gordTwoTh.CIMS2_Test"/>
+      </group> <!-- fast -->
+      <group name="slow">
+        <method signature="CIMS2_Test.aSlowTest()[pri:0, instance:gordTwoTh.CIMS2_Test@2d710f1a]" name="aSlowTest" class="gordTwoTh.CIMS2_Test"/>
+      </group> <!-- slow -->
     </groups>
-    <test started-at="2021-07-08T10:28:53Z" name="Default test" finished-at="2021-07-08T10:28:53Z" duration-ms="18">
+    <test started-at="2021-08-17T09:22:56Z" name="Default test" finished-at="2021-08-17T09:22:56Z" duration-ms="25">
       <class name="gordTwoTh.CIMS2_Test">
-        <test-method signature="setUpTest()[pri:0, instance:gordTwoTh.CIMS2_Test@428640fa]" started-at="2021-07-08T18:28:53Z" name="setUpTest" finished-at="2021-07-08T18:28:53Z" duration-ms="6" status="PASS">
+        <test-method signature="aFastTest()[pri:0, instance:gordTwoTh.CIMS2_Test@2d710f1a]" started-at="2021-08-17T17:22:56Z" name="aFastTest" finished-at="2021-08-17T17:22:56Z" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aFastTest -->
+        <test-method signature="aSlowTest()[pri:0, instance:gordTwoTh.CIMS2_Test@2d710f1a]" started-at="2021-08-17T17:22:56Z" name="aSlowTest" finished-at="2021-08-17T17:22:56Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- aSlowTest -->
+        <test-method signature="setUpTest()[pri:0, instance:gordTwoTh.CIMS2_Test@2d710f1a]" started-at="2021-08-17T17:22:56Z" name="setUpTest" finished-at="2021-08-17T17:22:56Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpTest -->
