@@ -1,44 +1,47 @@
 package gordTwoTh;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.util.List;
 
-import java.net.URL;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 
+////div[@id='react-select-2-option-9']
 public class ChenweiJia {
-	public static void main(String args[]){
-		String encoding = "GBK";
-		//URL urls = ChenweiJia.class.getClassLoader().getResource("conf.propertis");
-		
-		String filepath = "D:\\Gordon\\GitDemo\\selenium-java\\EclipseWorkSpace\\gordTwoTh\\src\\test\\resources\\CIMS2_Element.txt";
-		
-		//String filepath = Reader.class.getClassLoader().getResource("CIMS2_Element.txt").getPath();
-		//String filepath = Readable.class.getClassLoader().getResource("my.txt").getPath();
-		File files = new File(filepath);
-		String LineTxt = null;
-		//judge file whether exist
-	try {
-		if(files.isFile()&& files.exists()) {
-			InputStreamReader reads = new InputStreamReader(
-					new FileInputStream(files), encoding);
-			BufferedReader bufferedReader = new BufferedReader(reads);
-			while((LineTxt = bufferedReader.readLine()) != null) {
-				System.out.println(LineTxt);
-				}
-			reads.close();
-			}
-		else {
-			System.out.println("txt is not finded");
-		}
-	}catch(Exception e) {
-			System.out.println("read txt error");
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\Gordon\\GoogleDriver\\chromedriver.exe");
+		String  urls = "http://192.168.101.178:3000/#/login";
+		ChromeDriver  cd = new ChromeDriver();
+		cd.get(urls);
+		cd.manage().window().maximize();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//定位首頁的下拉框，以便選擇service同clinic，通過class name定位可以看到有多個值，用List列表來存儲多個值
+		List<WebElement> pagebutton = cd.findElements(By.className("css-11ei81s-indicatorContainer"));
+		pagebutton.get(0).click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		cd.findElement(By.xpath("//div[@id='react-select-3-option-9']")).click();
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		cd.close();
+		cd.quit();
 	}
-
 }
 
