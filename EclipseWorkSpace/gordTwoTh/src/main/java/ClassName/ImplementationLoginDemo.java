@@ -1,3 +1,7 @@
+// -- [/gordTwoTh/src/main/java/ClassName/ImplementationLoginDemo.java  實現方法
+// -- [/gordTwoTh/src/main/java/ClassName/LoginDemo.java]               聲明方法
+// -- [/gordTwoTh/src/test/java/gordTwoTh/Only_one_condition_is_satisfied.java] 調用的主方法
+
 package ClassName;
 
 import java.io.BufferedReader;
@@ -25,6 +29,8 @@ public class ImplementationLoginDemo implements LoginDemo {
 		/*judge element whether exist
 		 * if exist return true
 		 * if not exist return false
+		 * 當登錄了CIMS2系統後，如果在登錄狀態下關閉頁面，這個時候session還處於登錄狀態下，然後有開一個新的頁面，輸入同一個賬號密碼登錄CIMS系統
+		 * 就會彈出這個提示
 		 * */
 		try {
 			web.findElement(By.cssSelector("button[id='force_login_button']"));
@@ -101,8 +107,7 @@ public class ImplementationLoginDemo implements LoginDemo {
 		String LineTxt = null;
 		try {
 			if(files.isFile()&& files.exists()) {
-				InputStreamReader reads = new InputStreamReader(
-						new FileInputStream(files), encoding);
+				InputStreamReader reads = new InputStreamReader(new FileInputStream(files), encoding);
 				BufferedReader bufferedReader = new BufferedReader(reads);
 				while((LineTxt = bufferedReader.readLine()) != null && LTB<=99) {
 					//System.out.println(LineTxt);
